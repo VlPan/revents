@@ -11,11 +11,13 @@ const emptyEvent = {
 
 class EventForm extends Component {
 
+
   state = {
     event: emptyEvent
   }
 
   componentDidMount() {
+    
     if (this.props.selectedEvent !== null) {
       this.setState({
         event: this.props.selectedEvent
@@ -24,6 +26,7 @@ class EventForm extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log(this.state)
     if (nextProps.selectedEvent !== this.props.selectedEvent) {
       this.setState({
         event: nextProps.selectedEvent || emptyEvent
@@ -51,6 +54,7 @@ class EventForm extends Component {
 
   render() {
 
+    console.log(this.state)
     const {handleCancel} = this.props;
     const {event} = this.state;
     return (
