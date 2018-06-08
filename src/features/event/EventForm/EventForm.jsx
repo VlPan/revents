@@ -72,7 +72,7 @@ class EventForm extends Component {
       .then(res => getLatLng(res[0]))
       .then(latlng => {
         this.setState({
-          cityLatLng: latlng
+          venueLatLng: latlng
         })
       })
       .then(() => {
@@ -83,6 +83,7 @@ class EventForm extends Component {
   onFormSubmit = values => {
 
     values.date = moment(values.date).format()
+    values.venueLatLng = this.state.venueLatLng;
     if (this.props.initialValues.id) {
       this.props.updateEvent(values);
       this.props.history.goBack();
